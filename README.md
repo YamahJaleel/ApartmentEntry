@@ -10,4 +10,7 @@ This C program simulates an apartment entry system, providing functionality for 
 
 - **Telephone Entry System:** Simulate a telephone entry system where residents can be looked up by name or apartment number.
 
-- **User-Friendly Interface:** Intuitive text-based interface for easy interaction with the program., 
+- **User-Friendly Interface:** Intuitive text-based interface for easy interaction with the program.
+
+## Note
+Work in progress...
