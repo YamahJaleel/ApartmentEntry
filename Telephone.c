@@ -13,9 +13,9 @@ struct Resident {
     long phoneNumber;
 };
 
-// Print residents
+// Function to Print all Residents
 void printResidents(struct Resident *residentPtr) {
-    printf("| %-20s | %-15s | %-15s |\n", "Name", "Apartment Number", "Phone Number");
+    printf("\n| %-20s | %-15s | %-15s |\n", "Name", "Apartment Number", "Phone Number");
     printf("|----------------------|------------------|-----------------|\n");
 
     for (int i = 0; i < 10; i++) {
@@ -23,9 +23,31 @@ void printResidents(struct Resident *residentPtr) {
     }
 }
 
+// Function to Buzz Resident
+void buzzResident(struct Resident residents[], int numResidents, int apartmentNumber) {
+    int residentIndex = -1;
 
+    // Search for the resident with the specified apartment number
+    for (int i = 0; i < numResidents; i++) {
+        if (residents[i].apartmentNumber == apartmentNumber) {
+            residentIndex = i;
+            break;
+        }
+    }
+
+    // Check if the resident was found
+    if (residentIndex != -1) {
+	printf(" \n");
+        printf("%s in Apartment # %d\n", residents[residentIndex].name, apartmentNumber);
+	printf("Has opened the door for you\n");
+        // Add any additional code for buzzing action here
+    } else {
+        printf("Resident not found in Apartment %d\n", apartmentNumber);
+    }
+}
+
+// Main Function
 int main(){
-
 
         // Create an array of Resident structures
         struct Resident residents[NUM_RESIDENTS];
@@ -82,30 +104,46 @@ int main(){
         printf("|====================================================|\n");
         printf("| Welcome to the Apartment Telephone Entry System    |\n");
         printf("| This system allows you to buzz a resident          |\n");
-        printf("| living at 1603 housington way                      |\n");
+        printf("| living at Housington Apartments                    |\n");
         printf("| If you are administrator Enter the passcode (0)    |\n");
         printf("| when you are prompted below                        |\n");
-        printf("| If you are a guest simply enter 1 below            |\n");
         printf("|====================================================|\n");
 
         sleep(15);
-
 
         while (1){
 
 
                 printf("\n");
-                printf("What would you like to do\n");
                 printf("1 -> Buzz an Apartment\n");
+		printf("2 -> Show all Residents\n");
+		printf("What would you like to do: ");
 
                 scanf("%d", &administratorCheck);
 
                 if (administratorCheck == 1){
-                        printf("Buzzing...\n");
-                } else if (administratorCheck == 0){
-                        printf("Doing something else\n");
+			int apartmentNumber;
+                        printf("Please enter the residents Apartment # : ");
+			scanf("%d", &apartmentNumber);
+			printf("\nBuzzing");
+    			sleep(1);
+			fflush(stdout);
+			sleep(1);
+    			printf(".");
+    			fflush(stdout);
+			sleep(1);
+    			printf(".");
+    			fflush(stdout);
+			sleep(1);
+    			printf(".\n");
+			buzzResident(residents, NUM_RESIDENTS, apartmentNumber);
+			break;
+                } else if (administratorCheck == 2){
+			 printResidents(residents);
+		} else if (administratorCheck == 0){
+                         printf("Doing something else");
                 } else {
-                        printf("Not Allowed please enter 0 or 1");
+                        printf("Not Allowed please enter 0 or 1\n");
                 }
 
         }
@@ -120,6 +158,8 @@ int main(){
         //printResidents(residents);
 
 
+	printf("Thank you for Visiting Housington Apartments\n");
+	printf(" \n");
 
 
         return 0;
