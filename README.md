@@ -18,3 +18,10 @@ This C program simulates an apartment entry system, providing functionality for 
 - **Telephone Entry System:** Simulate a telephone entry system where residents can be looked up by name or apartment number.
 
 - **User-Friendly Interface:** Intuitive text-based interface for easy interaction with the program.
+
+## Installation and Setup
+
+  1. Open Terminal, navigate to where you want to download the program files
+  2. Run this command -> git clone https://github.com/YamahJaleel/SecureEntry.git
+  3. Compile the EntrySystem file -> gcc EntrySystem.c
+  4. Run executable file -> (Should look something like this ./a.out) 
